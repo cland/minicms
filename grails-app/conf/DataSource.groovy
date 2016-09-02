@@ -21,7 +21,7 @@ environments {
     development {
 		dataSource {
 			username = "root"
-			password = "20gR@ils16"
+			password = "20gR@ils16" 
 			dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
 			url = "jdbc:mysql://localhost:3306/minicms?autoreconnect=true"
 		}        

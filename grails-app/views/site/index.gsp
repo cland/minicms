@@ -127,8 +127,6 @@
             <div class="title-area">
               <h2 class="tittle">Welcome to <span>WIGGLY TOES</span></h2>
               <span class="tittle-line"></span>
-              
-			     
 			  		<p> <p><span style="font-family:comic sans ms,cursive"><span style="font-size:20px">Welcome to our new <span style="color:#FF8C00">MiniCMS </span>website!!</span></span></p> </p>
 			  	 
               <br />

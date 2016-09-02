@@ -12,4 +12,4 @@
      <section id="section3" style="background-color: pink; height: 400px;">${raw(section3) }</section>
   </div>
 </body>
-</html>
+</html> 
