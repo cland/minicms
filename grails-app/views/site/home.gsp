@@ -7,9 +7,7 @@
 </head>
 <body>
   <div class="body">
-     <section id="section1" style="background-color: purple; height: 400px;">${raw(section1) }</section>
-     <section id="section2" style="background-color: white; height: 400px;">${raw(section2) }</section>
-     <section id="section3" style="background-color: pink; height: 400px;">${raw(section3) }</section>
+    <p>Test site</p>
   </div>
 </body>
 </html> 

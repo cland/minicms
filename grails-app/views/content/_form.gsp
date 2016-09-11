@@ -58,11 +58,13 @@
 
 <div class="fieldcontain ${hasErrors(bean: contentInstance, field: 'body', 'error')} required">
 	<label for="body">
-		<g:message code="content.body.label" default="Body" />
+		<g:message code="content.body.label" default="Please enter content below" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="body" required="" value="${contentInstance?.body}"/>
-
+	<%--g:textField name="body" required="" value="${contentInstance?.body}"/--%>
+	<ckeditor:editor name="body" height="400px" width="90%">
+		${contentInstance?.body }
+	</ckeditor:editor>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: contentInstance, field: 'picture', 'error')} ">

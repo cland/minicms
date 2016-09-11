@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+<%@ page import="com.lungelo.minicms.Content" %> 
 <html lang="en">
   <head>
     
@@ -40,6 +40,7 @@
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <ckeditor:resources/>
     <![endif]-->
   </head>
   <body>
@@ -54,6 +55,8 @@
     <a class="scrollToTop" href="#"><i class="fa fa-chevron-up"></i></a>
   <!-- END SCROLL TOP BUTTON -->
 
+  <g:set var="about" value="${Content.findByDisplayStatusAndAppName(true, 'about') }"/>
+  <g:set var="team" value="${Content.findAllByDisplayStatusAndAppName(true, 'team') }"/>
   <!-- Start header section -->  
   <header id="header">
     <div class="header-inner">
@@ -125,8 +128,9 @@
           <!-- Start welcome area -->
           <div class="welcome-area">
             <div class="title-area">
-              <h2 class="tittle">Welcome to <span>WIGGLY TOES</span></h2>
+              <h2 class="tittle"><span>${about.title.toString() }</span></h2>
               <span class="tittle-line"></span>
+              <p>${about.body }</p>
 			  		<p> <p><span style="font-family:comic sans ms,cursive"><span style="font-size:20px">Welcome to our new <span style="color:#FF8C00">MiniCMS </span>website!!</span></span></p> </p>
 			  	 
               <br />
@@ -224,10 +228,10 @@
         <div class="col-md-12">
           <div class="team-area">
             <div class="title-area">
-              <h2 class="tittle">Meet our team</h2>
+              <h2 class="tittle">${raw(team.first().title.toString()) }</h2>
               <span class="tittle-line"></span>
               
-			     
+			     ${raw(team.first().body) }
 			  		<p><p><span style="font-family:comic sans ms,cursive"><span style="font-size:20px">Welcome to our new <span style="color:#FF8C00">MiniCMS </span>website!!</span></span></p> </p>
 			  	 
             </div>
