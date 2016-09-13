@@ -85,6 +85,12 @@
 					
 				</li>
 				</g:if>
+				<g:if test="${contentInstance }">
+				<attachments:each bean="${contentInstance}">
+						<img src="${request.contextPath}/attachmentable/show/${contentInstance?.attachment?.id }" style="width:50px;vertical-align:top;"/><br/>		
+						
+					</attachments:each>
+				</g:if>
 			
 			</ol>
 			<g:form url="[resource:contentInstance, action:'delete']" method="DELETE">

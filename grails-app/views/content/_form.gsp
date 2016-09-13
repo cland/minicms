@@ -71,7 +71,7 @@
 	<label for="pictures">
 		<g:message default="pictures" />
 	</label>
-	<input type="file" name="pictures"/>
+	<input type="file" name="pictures" />
 
 </div>
 

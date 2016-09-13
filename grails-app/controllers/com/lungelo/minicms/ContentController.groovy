@@ -1,5 +1,5 @@
 package com.lungelo.minicms
-
+import com.macrobit.grails.plugins.attachmentable.core.Attachmentable
 
 
 import static org.springframework.http.HttpStatus.*
@@ -16,6 +16,8 @@ class ContentController {
     }
 
     def show(Content contentInstance) {
+		println "In the show controller..."
+		println contentInstance.attachments
         respond contentInstance
     }
 
@@ -25,6 +27,7 @@ class ContentController {
 
     @Transactional
     def save(Content contentInstance) {
+		println "In the save controller..."
         if (contentInstance == null) {
             notFound()
             return
@@ -34,7 +37,8 @@ class ContentController {
             respond contentInstance.errors, view:'create'
             return
         }
-		//attachUploadedFilesTo(contentInstance)
+		println "Attaching files"
+		attachUploadedFilesTo(contentInstance)
 
         contentInstance.save flush:true
 
@@ -53,6 +57,7 @@ class ContentController {
 
     @Transactional
     def update(Content contentInstance) {
+		println "In the update controller..."
         if (contentInstance == null) {
             notFound()
             return
@@ -62,9 +67,11 @@ class ContentController {
             respond contentInstance.errors, view:'edit'
             return
         }
-
+		println "Uploading attachments..."
+		attachUploadedFilesTo(contentInstance, [""+"C:"+ contentInstance.id])
+		println "Attachments uploaded."
         contentInstance.save flush:true
-
+		println contentInstance.getTotalAttachments(['pictures']) 
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.updated.message', args: [message(code: 'Content.label', default: 'Content'), contentInstance.id])

@@ -1,5 +1,5 @@
 package com.lungelo.minicms
-
+import com.macrobit.grails.plugins.attachmentable.core.Attachmentable
 class Content {
 	String appName;
 	String title;
