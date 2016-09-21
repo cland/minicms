@@ -8,7 +8,7 @@ import grails.transaction.Transactional
 @Transactional(readOnly = true)
 class ContentController {
 
-    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
+	static allowedMethods = [save: "POST", update: "POST ", delete: "DELETE"]
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
@@ -38,10 +38,10 @@ class ContentController {
             return
         }
 		println "Attaching files"
-		attachUploadedFilesTo(contentInstance)
-
+		
         contentInstance.save flush:true
 
+		attachUploadedFilesTo(contentInstance, ["pictures"])
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'content.label', default: 'Content'), contentInstance.id])
