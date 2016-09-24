@@ -28,7 +28,7 @@
 				</g:eachError>
 			</ul>
 			</g:hasErrors>
-			<g:uploadForm url="[resource:contentInstance, action:'update']" >
+			<g:uploadForm url="[resource:contentInstance, action:'update']" method="PUT">
 				<g:hiddenField name="version" value="${contentInstance?.version}" />
 				<fieldset class="form">
 					<g:render template="form"/>

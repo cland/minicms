@@ -71,10 +71,10 @@ class ContentController {
             return
         }
 		println "Uploading attachments..."
-		attachUploadedFilesTo(contentInstance, [""+"C:"+ contentInstance.id])
+		
 		println "Attachments uploaded."
         contentInstance.save flush:true
-		println contentInstance.getTotalAttachments(['pictures']) 
+		attachUploadedFilesTo(contentInstance, ["pictures"])
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.updated.message', args: [message(code: 'Content.label', default: 'Content'), contentInstance.id])
