@@ -19,6 +19,7 @@ class ContentController {
 		println "In the show controller..."
 		println contentInstance.attachments
         respond contentInstance
+		println "Exit show controller..."
     }
 
     def create() {
@@ -41,7 +42,7 @@ class ContentController {
 		
         contentInstance.save flush:true
 
-		attachUploadedFilesTo(contentInstance, ["pictures"])
+		attachUploadedFilesTo(contentInstance)
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.created.message', args: [message(code: 'content.label', default: 'Content'), contentInstance.id])
@@ -52,7 +53,9 @@ class ContentController {
     }
 
     def edit(Content contentInstance) {
+		println "In the edit controller.."
         respond contentInstance
+		println "Exit edit controller"
     }
 
     @Transactional
@@ -83,7 +86,7 @@ class ContentController {
 
     @Transactional
     def delete(Content contentInstance) {
-
+		println "In the delete controller.."
         if (contentInstance == null) {
             notFound()
             return
@@ -96,7 +99,7 @@ class ContentController {
                 flash.message = message(code: 'default.deleted.message', args: [message(code: 'Content.label', default: 'Content'), contentInstance.id])
                 redirect action:"index", method:"GET"
             }
-            '*'{ render status: NO_CONTENT }
+            '*'{ render status: NO_CONTENT } 
         }
     }
 

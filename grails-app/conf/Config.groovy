@@ -84,9 +84,12 @@ grails.hibernate.cache.queries = false
 grails.hibernate.pass.readonly = false
 // configure passing read-only to OSIV session by default, requires "singleSession = false" OSIV mode
 grails.hibernate.osiv.readonly = false
+
+
+
 grails.attachmentable.maxInMemorySize = 1024
 grails.attachmentable.maxUploadSize = 1024000000
-grails.attachmentable.uploadDir = "/"
+//grails.attachmentable.uploadDir = "/"
 environments {
     development {
         grails.logging.jul.usebridge = true

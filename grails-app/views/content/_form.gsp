@@ -47,14 +47,6 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: contentInstance, field: 'attachmentAbility', 'error')} ">
-	<label for="attachmentAbility">
-		<g:message code="content.attachmentAbility.label" default="Attachment Ability" />
-		
-	</label>
-	<g:checkBox name="attachmentAbility" value="${contentInstance?.attachmentAbility}" />
-
-</div>
 
 <div class="fieldcontain ${hasErrors(bean: contentInstance, field: 'body', 'error')} required">
 	<label for="body">
