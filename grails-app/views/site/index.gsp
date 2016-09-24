@@ -237,7 +237,7 @@
             </div>
             <!-- Start team content -->
             <div class="team-content">
-              <ul class="team-grid">
+              <ul class="team-grid"><%--
                 <li>
                   <div class="team-item team-img-1 wow fadeInUp">
                     <div class="team-info">
@@ -298,6 +298,27 @@
                     <span>Senior designer</span>
                   </div>
                 </li>
+              --%>
+              
+              <attachments:each bean="${contentInstance}">
+              <li>
+                  <div class="team-item team-image wow fadeInUp">
+                   <div class="team-info">
+                      <p> I must explain to you how all this mistaken idea of denouncing pleasure n</p>
+                      <a href="#"><span class="fa fa-facebook"></span></a>
+                      <a href="#"><span class="fa fa-twitter"></span></a>
+                      <a href="#"><span class="fa fa-pinterest"></span></a>
+                      <a href="#"><span class="fa fa-rss"></span></a>
+                    </div>
+                    <div class="team-address">
+                    <p>${contentInstance?.description }</p>
+                    <span>CEO & Founder</span>
+                  </div>
+				<img src="${request.contextPath}/attachmentable/show/${attachment?.id }" style="width:150px;vertical-align:top;"/><br/>
+					
+					</div>
+					</li>
+					</attachments:each>
               </ul>
             </div>
             <!-- End team content -->

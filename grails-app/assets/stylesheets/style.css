@@ -2491,6 +2491,10 @@ img{
 	  background-position: center center;
 	  background-size: 100% auto;
 	}
+	.team-image {
+	  background-position: center center;
+	  background-size: 100% auto;
+	}
 	.team-info {
 	  padding: 30px 18px;
 	}
