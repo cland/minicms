@@ -21,7 +21,7 @@
     <!-- Animate css -->
     <link rel="stylesheet" type="text/css" href="../assets/css/animate.css"/>  
      <!-- Theme color -->
-    <link id="switcher" href="../assets/theme-color/default.css" rel="stylesheet">
+    <link id="switcher" href="../assets/css/theme-color/default.css" rel="stylesheet">
     
     <link href="../assets/preloader.css" rel="stylesheet">
     <!-- Main Style -->
@@ -57,6 +57,7 @@
 
   <g:set var="about" value="${Content.findByDisplayStatusAndAppName(true, 'about') }"/>
   <g:set var="team" value="${Content.findAllByDisplayStatusAndAppName(true, 'team') }"/>
+  <g:set var="gallery" value="${Content.findAllByDisplayStatusAndAppName(true, 'Gallery') }"/>
   <!-- Start header section -->  
   <header id="header">
     <div class="header-inner">
@@ -299,10 +300,10 @@
                   </div>
                 </li>
               --%>
-              
-              <attachments:each bean="${contentInstance}">
+              <g:each in="${team}" status="i" var="content">
+              <attachments:each bean="${content}">
               <li>
-                  <div class="team-item team-image wow fadeInUp">
+                  <div class="team-item team-image wow fadeInUp" <%--style="background-image:url(${request.contextPath}/attachmentable/show/${attachment?.id })"--%>>
                    <div class="team-info">
                       <p> I must explain to you how all this mistaken idea of denouncing pleasure n</p>
                       <a href="#"><span class="fa fa-facebook"></span></a>
@@ -311,14 +312,15 @@
                       <a href="#"><span class="fa fa-rss"></span></a>
                     </div>
                     <div class="team-address">
-                    <p>${contentInstance?.description }</p>
-                    <span>CEO & Founder</span>
+                    <p>${content?.description }</p>
+                    <span>${raw(content?.body.replace('<p>', '').replace('</p>', '')) }</span>
                   </div>
-				<img src="${request.contextPath}/attachmentable/show/${attachment?.id }" style="width:150px;vertical-align:top;"/><br/>
+				<img src="${request.contextPath}/attachmentable/show/${attachment?.id }" style="width:100%; height: 100%; vertical-align:top;"/><br/>
 					
 					</div>
 					</li>
 					</attachments:each>
+					</g:each>
               </ul>
             </div>
             <!-- End team content -->
@@ -338,15 +340,8 @@
             <div class="title-area">
               <h2 class="tittle">Service we offer</h2>
               <span class="tittle-line"></span>
-              
-			     
-			  
-			     
-			  
-			     
 			  		<p>Content2:  <p><span style="font-family:comic sans ms,cursive"><span style="font-size:20px"><strong>Welcome to our new <span style="color:#FF8C00">MiniCMS </span>website!!!</strong></span></span></p> </p>
 			  	 
-			  
             </div>
             <!-- service content -->
             <div class="service-content">
@@ -441,7 +436,27 @@
                </div>
                <!-- Portfolio container -->
                <div id="mixit-container" class="portfolio-container">
-                 <div class="single-portfolio mix branding">
+                <g:each in="${gallery}" status="i" var="item">
+                	<attachments:each bean="${item}">
+                	  <div class="single-portfolio mix branding">
+		                   <div class="single-item">
+		                   <img src="${request.contextPath}/attachmentable/show/${attachment?.id }" style="width:100%; height: 100%; vertical-align:top;" alt="img"/><br/>
+		                     <!-- img src="../assets/images/portfolio-img-small1.jpg" alt="img"-->
+		                     <div class="single-item-content">
+		                        <div class="portfolio-social-icon">
+		                          <a class="fancybox" data-fancybox-group="gallery" href="${request.contextPath}/attachmentable/show/${attachment?.id }"><i class="fa fa-eye"></i></a>
+		                          <a class="link-btn" href="#"><i class="fa fa-link"></i></a>
+		                        </div>
+		                        <div class="portfolio-title">
+		                          <h4>Mobile application</h4>
+		                          <span>UI Design</span>
+		                        </div>
+		                </div>
+                   </div>
+                 </div>
+                	</attachments:each>
+                </g:each>
+                 <!-- div class="single-portfolio mix branding">
                    <div class="single-item">
                      <img src="../assets/images/portfolio-img-small1.jpg" alt="img">
                      <div class="single-item-content">
@@ -560,7 +575,7 @@
                         </div>
                      </div>
                    </div>
-                 </div>
+                 </div--!>
                </div>      
             </div>
           </div>
