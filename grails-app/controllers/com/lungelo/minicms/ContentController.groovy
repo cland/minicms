@@ -17,9 +17,6 @@ class ContentController {
 
     def show(Content contentInstance) {
 		println "In the show controller..."
-		println "Attachment: " + contentInstance.attachments.first();
-		//contentInstance.attachments
-		//println "Attachments2: " + request.contextPath+ "/attachmentable/show/" +contentInstance?.attachment?.id
         respond contentInstance
 		println "Exit show controller..."
     }

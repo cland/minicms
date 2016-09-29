@@ -58,6 +58,7 @@
   <g:set var="about" value="${Content.findByDisplayStatusAndAppName(true, 'about') }"/>
   <g:set var="team" value="${Content.findAllByDisplayStatusAndAppName(true, 'team') }"/>
   <g:set var="gallery" value="${Content.findAllByDisplayStatusAndAppName(true, 'Gallery') }"/>
+  <g:set var="services" value="${Content.findAllByDisplayStatusAndAppName(true, 'Services') }"/>
   <!-- Start header section -->  
   <header id="header">
     <div class="header-inner">
@@ -131,11 +132,8 @@
             <div class="title-area">
               <h2 class="tittle"><span>${about.title.toString() }</span></h2>
               <span class="tittle-line"></span>
-              <p>${about.body }</p>
-			  		<p> <p><span style="font-family:comic sans ms,cursive"><span style="font-size:20px">Welcome to our new <span style="color:#FF8C00">MiniCMS </span>website!!</span></span></p> </p>
-			  	 
+              <p>${raw(about.body) }</p>
               <br />
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt  labore et dolore magna aliqua. Ut enim ad minim veniamo laboris nis</p>
             </div>
             <div class="welcome-content">
               <ul class="wc-table">
@@ -346,7 +344,16 @@
             <!-- service content -->
             <div class="service-content">
               <ul class="service-table">
-                <li class="col-md-3 col-sm-6">
+              <g:each in="${services }" var="srvices">
+              	<li class="col-md-3 col-sm-6">
+                  <div class="single-service wow slideInUp">
+                    <span class="fa fa-edit service-icon"></span>
+                    <h4 class="service-title">${raw(srvices?.title) }</h4>
+                    <p>${raw(srvices.body) }</p>
+                  </div>
+                </li>
+              </g:each>
+                <%--li class="col-md-3 col-sm-6">
                   <div class="single-service wow slideInUp">
                     <span class="fa fa-edit service-icon"></span>
                     <h4 class="service-title">UX Design</h4>
@@ -401,7 +408,7 @@
                     <h4 class="service-title">Support</h4>
                     <p>At vero eos et accusa mus odio in dignissimos ducimus qui anditiis the tatum</p>
                   </div>
-                </li>
+                </li--%>
               </ul>
             </div>
           </div>
@@ -456,7 +463,7 @@
                  </div>
                 	</attachments:each>
                 </g:each>
-                 <!-- div class="single-portfolio mix branding">
+                 <%-- div class="single-portfolio mix branding">
                    <div class="single-item">
                      <img src="../assets/images/portfolio-img-small1.jpg" alt="img">
                      <div class="single-item-content">
@@ -575,7 +582,7 @@
                         </div>
                      </div>
                    </div>
-                 </div--!>
+                 </div--%>
                </div>      
             </div>
           </div>

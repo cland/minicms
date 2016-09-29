@@ -87,12 +87,11 @@
 				</g:if>
 				<%-- img src="${contentInstance.attachments.first() }" style="width:50px;vertical-align:top;"/--%>
 				<g:if test="${contentInstance }">
-				<attachments:each bean="${contentInstance}">
+				<%--attachments:each bean="${contentInstance}">
 				<img src="${request.contextPath}/attachmentable/show/${attachment?.id }" style="width:150px;vertical-align:top;"/><br/>
-						<%--img src="${request.contextPath}/attachmentable/show/${contentInstance?.attachments?.id }" style="width:50px;vertical-align:top;"/><br/--%>
-						<img src="C:\temp\uploads/com.lungelo.minicms.Content/\${contentInstance?.id }/${contentInstance?.attachments.first()}" style="width:50px;vertical-align:top;"/><br/>		
+						<%--img src="${request.contextPath}/attachmentable/show/${contentInstance?.attachments?.id }" style="width:50px;vertical-align:top;"/><br/>
 						
-					</attachments:each>
+					</attachments:each--%>
 				</g:if>
 			
 			</ol>

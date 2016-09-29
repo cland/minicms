@@ -13,7 +13,7 @@ class Content {
 		appName(nullable: false)
 		title nullable: false
 		description nullable: false
-		body: nullable: false
+		body nullable: false, size: 2..5000
 		displayLocation nullable: false
 		displayStatus nullable: false
 		attachmentAbility nullable: true
