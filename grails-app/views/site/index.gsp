@@ -74,9 +74,9 @@
           SERVICES</h2>
         <!-- End header content slider -->  
         <!-- Header btn area -->
-        <div class="header-btn-area">
-          <a class="knowmore-btn" href="#">KNOW MORE</a>
-          <a class="download-btn" href="#">CONTACT USE</a>
+        <div class="header-btn-area menu-scroll main-nav" style="margin-left: 0px !important; margin-right: 0px !important;">
+          <a class="knowmore-btn" href="#about">About Us</a>
+          <a class="download-btn" href="#service">Our Services</a>
         </div>
       </div>
       </div>      
