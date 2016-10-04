@@ -59,6 +59,7 @@
   <g:set var="team" value="${Content.findAllByDisplayStatusAndAppName(true, 'team') }"/>
   <g:set var="gallery" value="${Content.findAllByDisplayStatusAndAppName(true, 'Gallery') }"/>
   <g:set var="services" value="${Content.findAllByDisplayStatusAndAppName(true, 'Services') }"/>
+  <g:set var="pricing" value="${Content.findAllByDisplayStatusAndAppName(true, 'Pricing') }"/>
   <!-- Start header section -->  
   <header id="header">
     <div class="header-inner">
@@ -353,7 +354,7 @@
                   </div>
                 </li>
               </g:each>
-                <%--li class="col-md-3 col-sm-6">
+                <%-- <li class="col-md-3 col-sm-6">
                   <div class="single-service wow slideInUp">
                     <span class="fa fa-edit service-icon"></span>
                     <h4 class="service-title">UX Design</h4>
@@ -408,7 +409,7 @@
                     <h4 class="service-title">Support</h4>
                     <p>At vero eos et accusa mus odio in dignissimos ducimus qui anditiis the tatum</p>
                   </div>
-                </li--%>
+                </li> --%>
               </ul>
             </div>
           </div>
@@ -659,23 +660,22 @@
             <!-- service content -->
             <div class="pricing-table-content">
                 <ul class="price-table">
+                <g:each in="${pricing}" status="i" var="item">
                   <li class="wow slideInUp">
                     <div class="single-price">
-                      <h4 class="price-header">Basic</h4>
-                      <span class="price-amount">$0.00/mo</span>
-                      <p>5GB Storage</p>
-                      <p>1GB RAM</p>
-                      <p>400GB Bandwidth</p>
-                      <p>10 Email Address</p>
-                      <p>Unlimited access</p>
-                      <p>Forum Support</p>
+                    <!-- TODO Split pricing into different lines, and style each line -->
+                    
+                    <h4 class="price-header">${raw(item?.title)}</h4>
+                      <span class="price-amount">${raw(item?.description)}</span>
+                      ${raw(item?.body)}
                       <a data-text="SIGN UP" class="button button-default" href="#"><span>SIGN UP</span></a>
                     </div>
                   </li>
-                  <li class="wow slideInUp">
+                  </g:each>
+                  <%-- <li class="wow slideInUp">
                     <div class="single-price standard-price">
                       <h4 class="price-header">Standard</h4>
-                      <span class="price-amount">$10.00/mo</span>
+                      <span class="price-amount">$8.00/mo</span>
                       <p>5GB Storage</p>
                       <p>1GB RAM</p>
                       <p>400GB Bandwidth</p>
@@ -710,7 +710,7 @@
                       <p>Forum Support</p>
                       <a data-text="SIGN UP" class="button button-default" href="#"><span>SIGN UP</span></a>
                     </div>
-                  </li>
+                  </li> --%>
                </ul>     
             </div>
           </div>
